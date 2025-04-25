@@ -1,47 +1,78 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
-const timelineEvents = [
+const events = [
   {
-    year: "1939-1945",
-    title: "Вторая мировая война",
-    description: "Крупнейший вооруженный конфликт в истории человечества, в котором участвовало более 60 государств."
+    year: "1939",
+    title: "Начало Второй мировой войны",
+    description: "1 сентября 1939 года Германия вторгается в Польшу, что считается официальным началом Второй мировой войны.",
   },
   {
-    year: "1914-1918",
-    title: "Первая мировая война",
-    description: "Один из самых широкомасштабных военных конфликтов в истории человечества."
+    year: "1941",
+    title: "Нападение на СССР",
+    description: "22 июня 1941 года Германия вторгается в Советский Союз, начиная операцию «Барбаросса».",
   },
   {
-    year: "1941-1945",
-    title: "Великая Отечественная война",
-    description: "Война Советского Союза против нацистской Германии и её союзников."
+    year: "1941",
+    title: "Нападение на Пёрл-Харбор",
+    description: "7 декабря 1941 года Япония нападает на американскую военно-морскую базу Пёрл-Харбор, что приводит к вступлению США в войну.",
+  },
+  {
+    year: "1942-1943",
+    title: "Сталинградская битва",
+    description: "С 17 июля 1942 по 2 февраля 1943 года происходит решающее сражение, ставшее переломным моментом в войне.",
+  },
+  {
+    year: "1944",
+    title: "Открытие Второго фронта",
+    description: "6 июня 1944 года союзники высаживаются в Нормандии, начиная операцию «Оверлорд».",
+  },
+  {
+    year: "1945",
+    title: "Капитуляция Германии",
+    description: "8 мая 1945 года Германия подписывает акт о безоговорочной капитуляции.",
+  },
+  {
+    year: "1945",
+    title: "Капитуляция Японии",
+    description: "2 сентября 1945 года Япония подписывает акт о капитуляции, что знаменует окончание Второй мировой войны.",
   }
 ];
 
 const HistoryTimeline = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-10">Важные исторические периоды</h2>
+    <div className="py-8">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold mb-4">Хронология событий</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Ключевые даты и события Второй мировой войны
+        </p>
+      </div>
       
-      <div className="space-y-8">
-        {timelineEvents.map((event, index) => (
-          <div key={index} className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary/20 ml-6 md:ml-8" />
-            
-            <Card className="ml-16 md:ml-24 relative hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="absolute -left-16 md:-left-24 top-6 bg-primary text-white rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center font-bold">
-                  {index + 1}
+      <div className="relative">
+        {/* Вертикальная линия */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary/20"></div>
+        
+        <div className="space-y-12">
+          {events.map((event, index) => (
+            <div key={index} className="relative">
+              {/* Кружок на линии */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary"></div>
+              
+              <div className={`flex ${index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}>
+                <div className="w-1/2"></div>
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
+                  <div className="bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <span className="inline-block px-3 py-1 mb-3 text-sm font-semibold bg-primary/10 text-primary rounded-full">
+                      {event.year}
+                    </span>
+                    <h3 className="text-lg font-bold mb-2">{event.title}</h3>
+                    <p className="text-muted-foreground text-sm">{event.description}</p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-sm font-medium text-muted-foreground">{event.year}</div>
-                  <h3 className="text-xl font-bold">{event.title}</h3>
-                  <p className="text-muted-foreground">{event.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

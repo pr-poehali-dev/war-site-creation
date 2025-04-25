@@ -6,7 +6,7 @@ const Navigation = () => {
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link to="/" className="font-bold text-xl">ВОЕННАЯ ИСТОРИЯ</Link>
+          <Link to="/" className="font-bold text-xl">ВТОРАЯ МИРОВАЯ ВОЙНА</Link>
         </div>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -17,13 +17,13 @@ const Navigation = () => {
             Сражения
           </Link>
           <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
-            Личности
+            Полководцы
+          </Link>
+          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
+            Техника
           </Link>
           <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
             Хронология
-          </Link>
-          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
-            Галерея
           </Link>
         </nav>
         
